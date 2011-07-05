@@ -21,10 +21,16 @@
 
             <div class="entry-content">
                 <p>Sorry but nothing matched your search criteria. Maybe try again with some different search terms.</p>
+                <?php get_search_form(); ?>
             </div><!-- .entry-content -->
         </div><!-- #post-0 -->
     <?php endif; ?>
 </div><!-- #content -->
+
+<script type="text/javascript">
+// focuse on search field after it has loaded
+document.getElementById('s') && document.getElementById('s').focus();
+</script>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
