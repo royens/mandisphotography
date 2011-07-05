@@ -4,9 +4,10 @@
  *
  * Calls the loop to display posts.
  *
- * File: index.php
- * Added: July 5, 2011
- * Copyright 2011, Roy Ens <roy@royens.com>
+ * @version 0.0.1
+ * @package mandisphotography
+ * @subpackage theme
+ * @since 0.0.1
  */
 ?>
 
