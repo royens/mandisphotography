@@ -1,0 +1,9 @@
+A custom WordPress theme for http://www.mandisphotography.com.
+
+Installation Instructions:
+1) Download the package from Git.
+2) Uncompress (either unzip or tar -zvfx) the archive.
+3) Connect to your webhost via FTP.
+4) Upload the entire folder to your WordPress installation into
+   the wp-content/themes directory.
+5) Activate the theme from the WordPress Dashboard.
