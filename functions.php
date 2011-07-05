@@ -57,4 +57,30 @@ if ( ! function_exists( 'mandisphotography_posted_on' ) ) :
         );
     }
 endif;
+
+if ( ! function_exists( 'mandisphotography_posted_in' ) ) :
+    /**
+     * Prints HTML with meta information for the current post.
+     */
+    function mandisphotography_posted_in() {
+        // Retrieve tag list of current post
+        $tag_list = get_the_tag_list( '', ', ' );
+        if ( $tag_list ) {
+            $posted_in = 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.';
+        } elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
+            $posted_in = 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.';
+        } else {
+            $posted_in = 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.';
+        }
+
+        // Prints the string.
+        printf(
+            $posted_in,
+            get_the_category_list( ', ' ),
+            $tag_list,
+            get_permalink(),
+            the_title_attribute( 'echo=0' )
+        );
+    }
+endif;
 ?>
