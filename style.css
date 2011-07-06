@@ -69,17 +69,17 @@ h6 {font-size:16px;}
 /* Grid */
 body {min-width:960px;}
 #wrapper {margin-left:auto; margin-right:auto; width:960px;}
-#header, #branding, #nav, #main, #content, #sidebar, #wb_one, #wb-two, #wb-three, #wb-four, #footer, #fleft, #fright {display:inline; float:left; margin-left:10px; margin-right:10px;}
+#header, #branding, #nav, #main, #content, #sidebar, #wb_one, #wb-two, #wb-three, #wb-four, #footer, #footer-left, #footer-right {display:inline; float:left; margin-left:10px; margin-right:10px;}
 /* Widths */
 #header, #main, #footer {width:940px;}
 #nav, #content {width:620px;}
 #branding, #sidebar {width:300px;}
-#fleft, #fright {width:460px;}
+#footer-left, #footer-right {width:460px;}
 #wb-one, #wb-two, #wb-three, #wb-four {width:218px;} /* Not 220px to accomodate a 1px border */
 /* No left margin */
-#banner, #wb-one, #fleft, #content {margin-left:0;}
+#banner, #wb-one, #footer-left, #content {margin-left:0;}
 /* No right margin */
-#nav, #wb-four, #fright, #sidebar {margin-right:0;}
+#nav, #wb-four, #footer-right, #sidebar {margin-right:0;}
 /* Position relative */
 #header, #slideshow, #wb-one, #wb-two, #wb-three, #wb-four {position:relative;} 
 /* Overflow hidden */
@@ -115,13 +115,14 @@ body {min-width:960px;}
 #main {margin-top:24px; margin-bottom:24px;}
 #content, #sidebar {margin-top:12px;}
 
+
 /* ============================================================================= 
  * Footer Styling
  * ===========================================================================*/
 #footer p {margin-bottom:0;}
 #footer a {color:#fff; text-decoration:none;}
-#fright img {vertical-align:middle;}
-#fright p {text-align:right;}
+#footer-right img {vertical-align:middle;}
+#footer-right p {text-align:right;}
 
 /* ============================================================================= 
  * Font-face declarations 
