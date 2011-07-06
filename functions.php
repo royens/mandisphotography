@@ -83,4 +83,49 @@ if ( ! function_exists( 'mandisphotography_posted_in' ) ) :
         );
     }
 endif;
+
+if ( ! function_exists( 'mandisphotography_comment' ) ) :
+    /**
+     * Template for comments and pingbacks.
+     */
+    function mandisphotography_comment( $comment, $args, $depth ) {
+        $GLOBALS[ 'comment' ] = $comment;
+        switch ( $comment->comment_type ) :
+            case '' :
+?>
+    <li <?php comment_class(); ?> id="li_comment-<?php comment_ID(); ?>">
+        <div id="comment-<?php comment_ID(); ?>">
+            <div class="comment-author vcard">
+                <?php echo get_avatar( $comment, 40 ); ?>
+                <?php printf( '%s <span class="says">says:</span>', sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+            </div><!-- .comment-author .vcard -->
+            <?php if ( $comment->comment_approved == '0' ) : ?>
+                <em>Your comment is awaiting moderation.</em>
+                <br />
+            <?php endif; ?>
+
+            <div class="comment-meta commentmetadata">
+                <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( '%1$s at %2$s', get_comment_date(), get_comment_time() ); ?></a> <?php edit_comment_link( '(Edit)' ); ?>
+            </div><!-- .comment-meta .commentmetadata -->
+
+            <div class="comment-body">
+                <?php comment_text(); ?>
+            </div>
+
+            <div class="reply">
+                <?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args[ 'max_depth' ] ) ) ); ?>
+            </div><!-- .reply -->
+        </div><!-- #comment-## -->
+<?php
+                break;
+            case 'pingback' :
+            case 'trackback' :
+?>
+    <li class="post pingback">
+        <p>Pingback: <?php comment_author_link(); ?> <?php edit_comment_link( '(Edit)' ); ?></p>
+<?php
+                break;
+        endswitch;
+    }
+endif;
 ?>
