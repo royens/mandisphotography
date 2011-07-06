@@ -88,7 +88,10 @@ body {min-width:960px;}
 /* =============================================================================
  * Background and wrapper styling
  * ===========================================================================*/
-#wrapper {background:rgba(255,255,255,0.85); margin-top:2px; margin-bottom:2px;}
+.background-left, .background-right {position:fixed; z-index:-1;}
+.background-left {bottom:-50px; left:-30px;}
+.background-right {top:-30px; right:-20px;}
+#wrapper {background:rgba(255,255,255,0.85); margin-top:2px; margin-bottom:2px; -moz-box-shadow:0 0 10px #000; -webkit-box-shadow:0 0 10px #000; box-shadow:0 0 10px #000;}
 #header, #footer {background:rgba(117,201,203,0.85); margin:0; padding:12px 10px;}
 #header {height:72px;}
 #footer {color:#fff;}
