@@ -7,3 +7,132 @@ Author: Roy Ens
 Author URI: http://www.royens.com
 */
 
+/* ============================================================================
+ * Reset default browser CSS.
+ * ==========================================================================*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5,h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sup, sub, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {background:transparent; border:0; margin:0; padding;0; vertical-align:baseline;}
+body {line-height:1;}
+h1, h2, h3, h4, h5, h6 {clear:both; font-weight:normal;}
+ol, ul {list-style:none;}
+blockquote q {quotes:none;}
+blockquote:before, blockquote:after, q:before, q:after {content:''; content:none;}
+del {text-decoration:line-through;}
+table {border-collapse:collapse; border-spacing:0;}
+a img {border:none;}
+
+/* ============================================================================
+ * Rebuild Styles after reset
+ * ==========================================================================*/
+body {margin:0; background-color:#231d0d;}
+h1, h2, h3, h4, h5, h6 {margin-bottom:12px; clear:both;}
+hr {background-color:#999; border:0; heigth:1px; margin-bottom:1.5em;}
+p {margin-bottom:12px;}
+ul, ol {margin:0 0 1.5em 1em;}
+ol {list-style:decimal;}
+ol ol {list-style:upper-alpha;}
+ol ol ol {list-style:lower-roman;}
+ol ol ol ol {list-style:lower-alpha;}
+ul ul, ol ol, ul ol, ol ul {margin-bottom:0;}
+dl {margin:0 1.5em;}
+dt {font-weight:bold;}
+dd {margin-bottom:1.5em;}
+strong, b {font-weight:bold;}
+cite, em, i {font-style:italic;}
+blockquote {margin:0 3em; font-style:italic;}
+blockquote em, blockquote i, blockquote cite {font-style:normal;}
+q {font-style:italic;}
+q em, q i, q cite {font-style:normal;}
+pre {line-height:1.5; margin-bottom:1.5em;}
+abbr, acronym {border-bottom:1px dotted #4f4f4f; cursor:help;}
+ins {text-decoration:none;}
+sup, sub {height:0; line-height:1; vertical-align:baseline; position:relative;}
+sup {bottom:1ex;}
+sub {top:.5ex;}
+address {font-style:italic; margin:0 0 1em 1.5em;}
+
+/* ============================================================================
+ * Typography
+ * ==========================================================================*/
+body, input, textarea {color:#4a4a4a; font:normal normal normal 14px/1.5 Georgia, 'Times New Roman', serif;}
+pre, code {font:14px Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono l', 'Monaca', 'Courier New', 'Courier', monospace;}
+h1, h2, h3, h4, h5, h6 {font-weight:bold; font-style:none; font-family:Georgia, serif; letter-spacing:-1px; line-height:48px;}
+h1 {font-size:36px;}
+h2 {font-size:32px;}
+h3 {font-size:28px;}
+h4 {font-size:24px;}
+h5 {font-size:20px;}
+h6 {font-size:16px;}
+
+/* =============================================================================
+ * Layout
+ * ===========================================================================*/
+/* Grid */
+body {min-width:960px;}
+#wrapper {margin-left:auto; margin-right:auto; width:960px;}
+#header, #branding, #nav, #main, #content, #sidebar, #wb_one, #wb-two, #wb-three, #wb-four, #footer, #fleft, #fright {display:inline; float:left; margin-left:10px; margin-right:10px;}
+/* Widths */
+#header, #main, #footer {width:940px;}
+#nav, #content {width:620px;}
+#branding, #sidebar {width:300px;}
+#fleft, #fright {width:460px;}
+#wb-one, #wb-two, #wb-three, #wb-four {width:218px;} /* Not 220px to accomodate a 1px border */
+/* No left margin */
+#banner, #wb-one, #fleft, #content {margin-left:0;}
+/* No right margin */
+#nav, #wb-four, #fright, #sidebar {margin-right:0;}
+/* Position relative */
+#header, #slideshow, #wb-one, #wb-two, #wb-three, #wb-four {position:relative;} 
+/* Overflow hidden */
+#wrapper, #header, #second-nav ul {overflow:hidden;}
+
+/* =============================================================================
+ * Background and wrapper styling
+ * ===========================================================================*/
+#wrapper {background:rgba(255,255,255,0.85); margin-top:2px; margin-bottom:2px;}
+#header, #footer {background:rgba(117,201,203,0.85); margin:0; padding:12px 10px;}
+#header {height:72px;}
+#footer {color:#fff;}
+
+/* =============================================================================
+ * Header area styling
+ * ===========================================================================*/
+#site-title {font:normal normal normal 36px/48px 'VivaldiItalic', serif; text-align:center; color:#231d0d; margin:0;}
+#site-title a {color:#231d0d; text-decoration:none;}
+#tag-line {font:italic normal normal 14px/24px Georgia, serif; color:#231d0d; text-align:center; margin:0;}
+
+/* =============================================================================
+ * Menu styling
+ * ===========================================================================*/ 
+.skip-link, .screen-reader-text {position:absolute; left:-9999em; margin:0;}
+#main-nav ul {list-style:none outside none; text-align:center; margin-top:26px;}
+#main-nav ul li {display:inline;}
+#main-nav ul li a {margin-right:12px; text-decoration:none; color:#fff; font-weight:bold; line-height:20px; padding:10px 6px; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; background:#231d0d;}
+#main-nav ul li a:hover, #main-nav ul>li.current_page_item>a {background:#497e80;}
+
+/* =============================================================================
+ * Content Styling
+ * ===========================================================================*/
+#main {margin-top:24px; margin-bottom:24px;}
+#content, #sidebar {margin-top:12px;}
+
+/* ============================================================================= 
+ * Footer Styling
+ * ===========================================================================*/
+#footer p {margin-bottom:0;}
+#footer a {color:#fff; text-decoration:none;}
+#fright img {vertical-align:middle;}
+#fright p {text-align:right;}
+
+/* ============================================================================= 
+ * Font-face declarations 
+ * ===========================================================================*/
+@font-face {
+    font-family:'VivaldiItalic';
+    src: url('fonts/vivaldi_italic-webfont.eot');
+    src: url('fonts/vivaldi_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/vivaldi_italic-webfont.woff') format('woff'),
+         url('fonts/vivaldi_italic-webfont.ttf') format('truetype'),
+         url('fonts/vivaldi_italic-webfont.svg#VivaldiItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
