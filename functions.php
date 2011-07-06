@@ -28,6 +28,23 @@ if ( ! function_exists( 'mandisphotography_setup' ) ) :
 endif;
 
 /**
+ * Register widgetized areas, including sidebar
+ */
+function mandisphotography_widgets_init() {
+    // Area 1, default sidebar
+    register_sidebar( array(
+        'name' => 'Default Widget Area',
+        'id' => 'default-widget-area',
+        'description' => 'Default widget area to be used with blog',
+        'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</li>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+}
+add_action( 'widgets_init', 'mandisphotography_widgets_init' );
+
+/**
  * For the sake of security lets remove the WordPress
  * version number from feeds and the generator tag
  */
