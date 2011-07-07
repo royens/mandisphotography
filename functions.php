@@ -21,6 +21,12 @@ if ( ! function_exists( 'mandisphotography_setup' ) ) :
         // Add default posts and comments RSS feed links to head
         add_theme_support( 'automatic-feed-links' );
 
+        // Enable post thumbnail support
+        add_theme_support( 'post_thumbnails' );
+        // New Image size
+        if ( function_exists( 'add_image_size' ) )
+            add_image_size( 'slideshow', 900, 450, true );
+
         register_nav_menus( array(
             'primary' => 'Primary Navigation',
         ) );
@@ -52,6 +58,14 @@ function mandisphotography_remove_version() {
     return '';
 }
 add_filter( 'the_generator', 'mandisphotography_remove_version' );
+
+/**
+ * Remove inline styles printed when the gallery shortcode is used.
+ */
+function mandisphotography_remove_gallery_css( $css ) {
+    return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
+}
+add_filter( 'gallery_style', 'mandisphotography_remove_gallery_css' );
 
 if ( ! function_exists( 'mandisphotography_posted_on' ) ) :
     /** Prints HTML with meta infomration for the current post.
@@ -145,4 +159,85 @@ if ( ! function_exists( 'mandisphotography_comment' ) ) :
         endswitch;
     }
 endif;
+
+function re_get_images( $size = 'thumbnail', $limit = '0', $offset = '0', $big = 'large', $post_id = '$post->ID', $link = '1', $img_class = 'attachment-image', $wrapper = 'div', $wrapper_class = 'attachment-image-wrapper', $output_type = 'default' ) {
+
+    global $post;
+
+    $images = get_children( array ( 
+        'post_parent' => $post->ID,
+        'post_status' => 'inherit',
+        'post_type' => 'attachment',
+        'post_mime_type' => 'image',
+        'order' => 'ASC',
+        'orderby' => 'menu_order ID'
+    ) );
+
+
+    if ( $images ) {
+        $num_of_images = count( $images );
+
+        if ( $offset > 0 )
+            $start = $offset--;
+        else 
+            $start = 0;
+
+        if ( $limit > 0 )
+            $stop = $limit + $start;
+        else
+            $stop = $num_of_images;
+
+        $i = 0;
+
+        foreach ( $images as $attachment_id => $image ) {
+            if ( $start <= $i && $i < $stop ) {
+                $img_title = $image->post_title;
+                $img_description = $image->post_content;
+                $img_caption = $image->post_excerpt;
+                $img_alt = get_post_meta( $attachment_id, '_wp_get_attachment_image_alt', true );
+                if ( $img_alt == '' )
+                    $img_alt = $img_title;
+                if ( $big == 'large' ) {
+                    $big_array = image_downsize( $image->ID, $big );
+                    $img_url = $big_array[0];
+                } else {
+                    $img_url = wp_get_attachment_url( $image->ID );
+                }
+
+
+                $preview_array = image_downsize( $image->ID, $size );
+                if ( $preview_array[ 3 ] != 'true' ) {
+                    $preview_array = image_downsize( $image->ID, 'thumbnail' );
+                    $img_preview = $preview_array[ 0 ];
+                    $img_width = $preview_array[ 1 ];
+                    $img_heigth = $preview_array[ 2 ];
+                } else {
+                    $img_preview = $preview_array[ 0 ];
+                    $img_width = $preview_array[ 1 ];
+                    $img_width = $preview_array[ 2 ];
+                }
+
+                
+
+                $output = '';
+                if ( $wrapper != '0' )
+                    $output .= '<' . $wrapper . ' class="' . $wrapper_class . '">';
+                if ( $link == '1' )
+                    $output .= '<a href="' . $img_url . '" title="' . $img_title . '">';
+                $output .= '<img class="' . $img_class . '" src="' . $img_preview . '" alt="' . $img_alt . '" title="' . $img_title . '" />';
+                if ( $link  == '1' )
+                    $output .= '</a>';
+                if ( $img_caption != '' )
+                    $output .= '<div class="attachment-caption">' . $img_caption . '</div>';
+                if ( $img_description != '' )
+                    $output .= '<div class="attachment-description">' . $img_description . '</div>';
+                if ( $wrapper != '0' )
+                    $output .= '</' . $wrapper . '>';
+
+                    print( $output );
+            }
+            $i++;
+        }
+    }
+}
 ?>
