@@ -20,7 +20,7 @@
         
         <div id="post-<?php the_ID(); ?>" <?php post_class( 'slideshow' ); ?>>
             <div id="slideshow">
-                <?php re_get_images( 'slideshow', '0', '0', 'full', "$post->ID", '0', 'attachment-image', '0', 'small-thumb' ); ?>
+                <?php re_get_images( 'full', '0', '0', 'full', "$post->ID", '0', 'attachment-image', '0', 'small-thumb' ); ?>
             </div><!-- #slideshow -->
         </div><!-- #post-## -->
 

@@ -217,7 +217,7 @@ function re_get_images( $size = 'thumbnail', $limit = '0', $offset = '0', $big =
 
 
                 $preview_array = image_downsize( $image->ID, $size );
-                if ( $preview_array[ 3 ] != 'true' ) {
+                if ( $preview_array[ 3 ] != 'true' && $size != 'full' ) {
                     $preview_array = image_downsize( $image->ID, 'thumbnail' );
                     $img_preview = $preview_array[ 0 ];
                     $img_width = $preview_array[ 1 ];

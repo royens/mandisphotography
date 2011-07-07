@@ -69,17 +69,17 @@ h6 {font-size:16px;}
 /* Grid */
 body {min-width:960px;}
 #wrapper {margin-left:auto; margin-right:auto; width:960px;}
-#header, #branding, #nav, #main, #content, #sidebar, #wb_one, #wb-two, #wb-three, #wb-four, #footer, #footer-left, #footer-right {display:inline; float:left; margin-left:10px; margin-right:10px;}
+#header, #branding, #nav, #main, #content, #sidebar, #wb_one, #wb-two, #wb-three, #wb-four, #footer, #footer-left, #footer-right, #content.one-column {display:inline; float:left; margin-left:10px; margin-right:10px;}
 /* Widths */
-#header, #main, #footer {width:940px;}
+#header, #main, #footer, #content.one-column {width:940px;}
 #nav, #content {width:620px;}
 #branding, #sidebar {width:300px;}
 #footer-left, #footer-right {width:460px;}
 #wb-one, #wb-two, #wb-three, #wb-four {width:218px;} /* Not 220px to accomodate a 1px border */
 /* No left margin */
-#banner, #wb-one, #footer-left, #content {margin-left:0;}
+#banner, #wb-one, #footer-left, #content, #content.one-column {margin-left:0;}
 /* No right margin */
-#nav, #wb-four, #footer-right, #sidebar {margin-right:0;}
+#nav, #wb-four, #footer-right, #sidebar, #content.one-column {margin-right:0;}
 /* Position relative */
 #header, #slideshow, #wb-one, #wb-two, #wb-three, #wb-four {position:relative;} 
 /* Overflow hidden */
@@ -117,6 +117,10 @@ body {min-width:960px;}
  * ===========================================================================*/
 #main {margin-top:24px; margin-bottom:24px;}
 #content, #sidebar {margin-top:12px;}
+
+/* Slideshow styling */
+#slideshow {width:900px; margin:0 auto; -moz-box-shadow:0 0 15px #231d0d; -webkit-box-shadow:0 0 15px #231d0d; box-shadow:0 0 15px #231d0d;}
+#slideshow img {width:900px;}
 
 
 /* ============================================================================= 
