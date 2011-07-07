@@ -19,7 +19,9 @@
     <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
         
         <div id="post-<?php the_ID(); ?>" <?php post_class( 'slideshow' ); ?>>
-            <?php re_get_images( 'slideshow', '0', '0', 'full', "$post->ID", '0', 'attachment-image', 'div', 'small-thumb' ); ?>
+            <div id="slideshow">
+                <?php re_get_images( 'slideshow', '0', '0', 'full', "$post->ID", '0', 'attachment-image', '0', 'small-thumb' ); ?>
+            </div><!-- #slideshow -->
         </div><!-- #post-## -->
 
     <?php endwhile; ?>

@@ -50,6 +50,17 @@ function mandisphotography_widgets_init() {
 }
 add_action( 'widgets_init', 'mandisphotography_widgets_init' );
 
+function re_load_slideshow_js() {
+    if ( ! is_admin() ) {
+        if ( is_page_template( 'slideshow.php' ) ) {
+            wp_enqueue_script( 'jquery' );
+            wp_enqueue_script( 'jquery-cycle', get_bloginfo( 'template_url' ) . '/js/jquery.cycle.all.min.js', array( 'jquery' ) );
+            wp_enqueue_script( 'slideshow', get_bloginfo( 'template_url' ) . '/js/jquery.slideshow.js', array( 'jquery-cycle' ) );
+        }
+    }
+}
+add_action( 'template_redirect', 're_load_slideshow_js' );
+
 /**
  * For the sake of security lets remove the WordPress
  * version number from feeds and the generator tag
@@ -233,7 +244,7 @@ function re_get_images( $size = 'thumbnail', $limit = '0', $offset = '0', $big =
                     $output .= '<div class="attachment-description">' . $img_description . '</div>';
                 if ( $wrapper != '0' )
                     $output .= '</' . $wrapper . '>';
-
+                $output .= "\n";
                     print( $output );
             }
             $i++;
