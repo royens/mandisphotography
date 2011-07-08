@@ -26,6 +26,8 @@
 
     <?php endwhile; ?>
 
+    <?php get_sidebar( 'horizontal' ); ?>
+
 </div><!-- #content .one-column -->
 
 <?php get_footer(); ?>

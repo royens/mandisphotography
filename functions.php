@@ -47,6 +47,42 @@ function mandisphotography_widgets_init() {
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
+    register_sidebar( array( 
+        'name' => 'Horizontal Row Left',
+        'id' => 'horizontal-bottom-left',
+        'description' => 'Widget area on slideshow template. Left.',
+        'before_widget' => '',
+        'after_widget' => '',
+        'before_title' => '<h3 class="horizontal-widget-title">',
+        'after_title' => '</h3>'
+    ) );
+    register_sidebar( array(
+        'name' => 'Horizontal Row Left of Centre',
+        'id' => 'horizontal-bottom-left-centre',
+        'description' => 'Widget are on slideshow template. Left of centre.',
+        'before_widget' => '',
+        'after_widget' => '',
+        'before_title' => '<h3 class="horizontal-widget-title">',
+        'after_title' => '</h3>'
+    ) );
+    register_sidebar( array(
+        'name' => 'Horizontal Row Right of Centre',
+        'id' => 'horizontal-bottom-right-centre',
+        'description' => 'Widget are on slideshow template. Right of centre.',
+        'before_widget' => '',
+        'after_widget' => '',
+        'before_title' => '<h3 class="horizontal-widget-title">',
+        'after_title' => '</h3>'
+    ) );
+    register_sidebar( array(
+        'name' => 'Horizontal Row Right',
+        'id' => 'horizontal-bottom-right',
+        'description' => 'Widget are on slideshow template. Right.',
+        'before_widget' => '',
+        'after_widget' => '',
+        'before_title' => '<h3 class="horizontal-widget-title">',
+        'after_title' => '</h3>'
+    ) );
 }
 add_action( 'widgets_init', 'mandisphotography_widgets_init' );
 
