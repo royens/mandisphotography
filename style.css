@@ -122,6 +122,9 @@ body {min-width:960px;}
 #slideshow {width:900px; margin:0 auto; -moz-box-shadow:0 0 15px #231d0d; -webkit-box-shadow:0 0 15px #231d0d; box-shadow:0 0 15px #231d0d;}
 #slideshow img {width:900px;}
 
+/* Banner Image styling */
+#banner-image img {display:block; margin:0 auto; border:2px solid #231d0d; box-shadow:0 2px 5px #231d0d; -moz-box-shadow:0 2px 5px #231d0d; -webkit-box-shadow:0 2px 5px #231d0d;}
+
 /* Horizontal sidebar styling */
 #horizontal-sidebar {margin-top:24px;}
 #horizontal-sidebar h3 {margin-top:12px;}
