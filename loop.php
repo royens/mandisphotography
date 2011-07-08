@@ -2,7 +2,7 @@
 /**
  * The loop displays posts.
  *
- * @version 0.0.1
+ * @version 0.0.2
  * @package mandisphotography
  * @subpackage theme
  * @since 0.0.1
