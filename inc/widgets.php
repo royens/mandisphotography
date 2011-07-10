@@ -24,6 +24,8 @@ class MandisPhotography_Widget extends WP_Widget {
         $control_ops = array( 'id_base' => 'mandis_widget' );
 
         $this->WP_Widget( 'mandisphotography-widget', 'Mandi\'s Photography Widget', $widget_ops, $control_ops );
+
+        _log( $_GET['page'] );
     }
 
     /**
