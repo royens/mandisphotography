@@ -21,7 +21,9 @@ class MandisPhotography_Widget extends WP_Widget {
         /* Widget Settings */
         $widget_ops = array( 'classname' => 'mandisphotography-widget', 'description' => 'A widget that displays an image with a link in the sidebar.' );
 
-        $this->WP_Widget( 'mandisphotography-widget', 'Mandi\'s Photography Widget', $widget_ops );
+        $control_ops = array( 'id_base' => 'mandis_widget' );
+
+        $this->WP_Widget( 'mandisphotography-widget', 'Mandi\'s Photography Widget', $widget_ops, $control_ops );
     }
 
     /**
@@ -86,15 +88,22 @@ class MandisPhotography_Widget extends WP_Widget {
      * @return void Echo's it's output
      */
     function form( $instance ) {
+
+        $instance = wp_parse_args( (array) $instance, array(
+            'title' => '',
+            'image_url' => '',
+            'link' => '',
+            'link_text' => ''
+        ) );
         ?>
             <p>
                 <label for="<?php echo $this->get_field_id( 'title' ); ?>">Title:</label>
-                <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['name']; ?>" class="widefat" type="text" />
+                <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" class="widefat" type="text" />
             </p>
 
             <p>
                 <label for="<?php echo $this->get_field_id( 'image_url' ); ?>">Image URL:</label>
-                <input id="<?php echo $this->get_field_id( 'image_url' ); ?>" name="<?php echo $this->get_field_name( 'image_url' ); ?>" value="<?php echo $instance['image_url']; ?>" class="widefat" type="text" />
+                <input id="<?php echo $this->get_field_id( 'image_url' ); ?>" name="<?php echo $this->get_field_name( 'image_url' ); ?>" value="<?php echo $instance['image_url']; ?>" class="widefat upload_image" type="text" />
             </p>
 
             <p>
