@@ -30,6 +30,8 @@ if ( ! function_exists( 'mandisphotography_setup' ) ) :
         register_nav_menus( array(
             'primary' => 'Primary Navigation',
         ) );
+
+        require( dirname( __FILE__ ) . '/inc/widgets.php' );
     }
 endif;
 
@@ -37,6 +39,7 @@ endif;
  * Register widgetized areas, including sidebar
  */
 function mandisphotography_widgets_init() {
+
     // Area 1, default sidebar
     register_sidebar( array(
         'name' => 'Default Widget Area',
@@ -284,6 +287,18 @@ function re_get_images( $size = 'thumbnail', $limit = '0', $offset = '0', $big =
                     print( $output );
             }
             $i++;
+        }
+    }
+}
+
+if ( !function_exists( '_log' ) ) {
+    function _log( $message ) {
+        if ( WP_DEBUG === true ) {
+            if ( is_array( $message ) || is_object( $message ) ) {
+                error_log( print_r( $message, true ) );
+            } else {
+                error_log( $message ) ;
+            }
         }
     }
 }
