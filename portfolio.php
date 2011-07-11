@@ -22,7 +22,7 @@
 
 <div id="thumbs-wrapper">
     <div id="thumbs-container" style="visibility:hidden;">
-        <?php re_get_images( 'full', '0', '0', 'full', "$post->ID", '0', 'portfolio-image', '0', '' ); ?>
+        <?php re_get_images( 'thumbnail', '0', '0', 'full', "$post->ID", '0', 'portfolio-image', '0', '' ); ?>
     </div><!-- #thumbs-container -->
     <div class="infobar">
         <div id="info-left">

@@ -59,10 +59,9 @@
             
                 <div id="main-nav" class="nav" role="navigation">
                     <div class="skip-link screen-reader-text"><a href="#main-portfolio" title="Skip to content">Skip to content</a></div>
-                    <?php wp_nav_menu( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
+                    <?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
                 </div><!-- #main-nav -->
             </div><!-- #header-wrapper -->
         </div><!-- #header -->
 
         <div id="main-portfolio">
-

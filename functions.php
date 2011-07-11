@@ -274,7 +274,7 @@ function re_get_images( $size = 'thumbnail', $limit = '0', $offset = '0', $big =
                     $output .= '<' . $wrapper . ' class="' . $wrapper_class . '">';
                 if ( $link == '1' )
                     $output .= '<a href="' . $img_url . '" title="' . $img_title . '">';
-                $output .= '<img class="' . $img_class . '" src="' . $img_preview . '" alt="' . $img_alt . '" title="' . $img_title . '" />';
+                $output .= '<img class="' . $img_class . '" src="' . $img_preview . '" alt="' . $img_url . '" title="' . $img_title . '" />';
                 if ( $link  == '1' )
                     $output .= '</a>';
                 if ( $img_caption != '' )
