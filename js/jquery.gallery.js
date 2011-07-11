@@ -168,16 +168,19 @@ jQuery(function() {
     function resize($image, type) {
         var widthMargin = 10;
         var heightMargin = 0;
-        if(mode == 'expanded' && jQuery(window).height() <= 800)
+        var winHeight = jQuery(window).height();
+        var winWidth = jQuery(window).width();
+
+        if(mode == 'expanded' && winHeight <= 800)
             heightMargin = 55;
-        else if(mode == 'exanded' && jQuery(window).height() > 800)
+        else if(mode == 'exanded' && winHeight > 800)
             heightMargin = 180;
         else if(mode == 'small')
             heightMargin = 210;
 
         //type 1 is animate type 0 is normal
-        var windowH = jQuery(window).height()-heightMargin;
-        var windowW = jQuery(window).width()-widthMargin;
+        var windowH = winHeight-heightMargin;
+        var windowW = winWidth-widthMargin;
         var theImage = new Image();
         theImage.src = $image.attr("src");
         var imgwidth = theImage.width;
