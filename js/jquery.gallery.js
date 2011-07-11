@@ -170,17 +170,25 @@ jQuery(function() {
         var heightMargin = 0;
         var winHeight = jQuery(window).height();
         var winWidth = jQuery(window).width();
+        console.log( 'Width ' + winWidth + ' Height ' + winHeight );
 
-        if(mode == 'expanded' && winHeight <= 800)
+        if(mode == 'expanded' && winHeight <= 800) {
+            console.log( 'inside height <= 800' );
             heightMargin = 55;
-        else if(mode == 'exanded' && winHeight > 800)
+        }
+        else if(mode == 'exanded' && winHeight > 800) {
+            console.log( 'inside height > 800' );
             heightMargin = 180;
-        else if(mode == 'small')
+        }
+        else if(mode == 'small') {
+            console.log( 'inside mode is small' );
             heightMargin = 210;
+            }
 
         //type 1 is animate type 0 is normal
         var windowH = winHeight-heightMargin;
         var windowW = winWidth-widthMargin;
+        console.log( 'Changed Width ' + windowW + ' Changed Height ' + windowH );
         var theImage = new Image();
         theImage.src = $image.attr("src");
         var imgwidth = theImage.width;
