@@ -24,8 +24,10 @@ if ( ! function_exists( 'mandisphotography_setup' ) ) :
         // Enable post thumbnail support
         add_theme_support( 'post_thumbnails' );
         // New Image size
-        if ( function_exists( 'add_image_size' ) )
+        if ( function_exists( 'add_image_size' ) ) {
             add_image_size( 'slideshow', 900, 450, true );
+            add_image_size( 'portfolio-thumb', 75, 75, true );
+        }
 
         register_nav_menus( array(
             'primary' => 'Primary Navigation',
@@ -254,15 +256,18 @@ function re_get_images( $size = 'thumbnail', $limit = '0', $offset = '0', $big =
                     $img_url = wp_get_attachment_url( $image->ID );
                 }
 
-
                 $preview_array = image_downsize( $image->ID, $size );
                 if ( $preview_array[ 3 ] != 'true' && $size != 'full' ) {
                     $preview_array = image_downsize( $image->ID, 'thumbnail' );
                     $img_preview = $preview_array[ 0 ];
+                    if ( $size == 'portfolio-thumb' )
+                        $img_preview = preg_replace('/-150x150/', '-75x75', $img_preview );
                     $img_width = $preview_array[ 1 ];
                     $img_heigth = $preview_array[ 2 ];
                 } else {
                     $img_preview = $preview_array[ 0 ];
+                    if ( $size == 'portfolio-thumb' )
+                        $img_preview = preg_replace( '/-150x150/', '-75x75', $img_preview );
                     $img_width = $preview_array[ 1 ];
                     $img_width = $preview_array[ 2 ];
                 }
