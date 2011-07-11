@@ -140,6 +140,14 @@ ul.children {background:#487e80; margin:0; position:absolute; bottom:0; right:0;
 /* Portfolio styling */
 #loading {display:none; width:100px; height:100px; position:absolute; top:40%; left:50%; margin-left:-24px; background:transparent url(icons/ajax-loader.gif) no-repeat top left;}
 #thumbs-wrapper {position:absolute; width:100%; height:102px; overflow-y:hidden; background-color:rgba(117,201,203,0.85); bottom:0px; left:0px; border-top:2px solid #000;}
+#thumbs-container {height:79px; display:block; margin:0; background-color:#000;}
+#thumbs-wrapper img {float:left; margin:2px; display:block; cursor:pointer; opacity:0.4; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=40);}
+#image-wrapper {position:relative; padding-top:96px; text-align:center;}
+#image-wrapper img {margin:0 auto; box-shadow:2px 2px 15px #fff; -moz-box-shadow:2px 2px 15px #fff; -webkit-box-shadow:2px 2px 15px #fff;}
+.cursorRight {cursor:url("icons/next.cur"),url("icons/next.cur"), default;}
+.cursorLeft {cursor:url("icons/prev.cur"), url("icons/prev.cur"), default;}
+.cursorPlus {cursor:url("icons/plus.cur"), url("icons/plus.cur"), default;}
+.cursorMinus {cursor:url("icons/minus.cur"), url("icons/minus.cur"), default;}
 
 /* ============================================================================= 
  * Footer Styling
