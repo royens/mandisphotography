@@ -9,21 +9,21 @@ jQuery(function() {
 
     /* clicking on a thumb loads the image */
     jQuery('#thumbs-container img').live('click', function() {
-        loadPhoto($(this),'cursorPlus');
+        loadPhoto(jQuery(this),'cursorPlus');
     }).live('mouseover', function() {
-        var $this = $(this);
+        var $this = jQuery(this);
         $this.stop().animate({'opacity':'1.0'},200);
     }).live('mouseout', function() {
-        var $this = $(this);
+        var $this = jQuery(this);
         $this.stop().animate({'opacity':'0.4'},200);
     });
 
-    $(window).bind('resize', function() {
-        resize($('#displayed'),0);
+    jQuery(window).bind('resize', function() {
+        resize(jQuery('#displayed'),0);
     });
 
     jQuery('#displayed').live('mousemove', function(e){
-        var $this = $(this);
+        var $this = jQuery(this);
         var imageWidth = parseFloat($this.css('width'),10);
 
         var x = e.pageX - $this.offset().left;
@@ -40,7 +40,7 @@ jQuery(function() {
             }
         }
     }).live('click', function() {
-        var $this = $(this);
+        var $this = jQuery(this);
         if(mode == 'expanded' && $this.is('.cursorMinus')) {
             mode='small';
             $this.addClass('cursorPlus')
@@ -58,8 +58,9 @@ jQuery(function() {
         }
         else if (mode=='small' && $this.is('.cursorPlus')) {
             mode='expanded';
-            $this.addClass('cursorMinus').removeClass('cursorLeft cursorRight cursorPlus');
-            if($(window).height() < 800) {
+            $this.addClass('cursorMinus')
+            .removeClass('cursorLeft cursorRight cursorPlus');
+            if(jQuery(window).height() < 800) {
                 jQuery('#header-portfolio').stop().animate({
                     'top':'-70px'
                 },300);
@@ -67,10 +68,10 @@ jQuery(function() {
             jQuery('#thumbs-wrapper').stop().animate({
                 'bottom':'-85px'
             },300);
-            if($(window).height() < 800) {
+            if(jQuery(window).height() < 800) {
                 jQuery('#image-wrapper').stop().animate({
                     'padding-top':'25px'
-                }.300);
+                },300);
             }
             resize($this,1);
         }
@@ -96,15 +97,15 @@ jQuery(function() {
         jQuery('#loading').show();
 
         var count=0;
-        var countImage = jQuery('#thumbs-container img').size();
+        var countImages = jQuery('#thumbs-container img').size();
         jQuery('#thumbs-container img').each(function(){
 
-            var $this = $(this);
+            var $this = jQuery(this);
             ++count;
             if(count == 1) {
                 /* load 1 image into container */
                 jQuery('<img id="displayed" class="cursorPlus" style="display:block;" />').load(function(){
-                    var $first = $(this);
+                    var $first = jQuery(this);
                     jQuery('#loading').hide();
                     resize($first,0);
                     jQuery('#image-wrapper').append($first);
@@ -121,7 +122,7 @@ jQuery(function() {
     function thumbsDim($elem){
         var finalW = 0;
         $elem.find('img').each(function(i) {
-            var $img = $(this);
+            var $img = jQuery(this);
             finalW += $img.width() + 5;
         });
         $elem.css('width', finalW+'px').css('visibility','visible');
@@ -132,8 +133,8 @@ jQuery(function() {
         jQuery('#image-wrapper').empty();
         jQuery('#loading').show();
         jQuery('<img id="displayed" class="cursorClass" style="display:none;" title="' + $thumb.attr('title') + '" />').load(function() {
-            var $this = $(this);
-            $('#loading').hide();
+            var $this = jQuery(this);
+            jQuery('#loading').hide();
             resize($this,0);
             if(!jQuery('#image-wrapper').find('img').length) {
                 jQuery('#image-wrapper').append($this.fadeIn(1000));
@@ -150,7 +151,7 @@ jQuery(function() {
         $wrapper.css({overflow:'hidden'});
 
         // Find last image container
-        var lastLi = $continaer.find('img:last-child');
+        var lastLi = $container.find('img:last-child');
         $wrapper.scrollLeft(0);
         //When user move mouse over menu
         $wrapper.unbind('mousemove').bind('mousemove',function(e) {
@@ -167,16 +168,16 @@ jQuery(function() {
     function resize($image, type) {
         var widthMargin = 10;
         var heightMargin = 0;
-        if(mode == 'expanded' && $(window).height() <= 800)
+        if(mode == 'expanded' && jQuery(window).height() <= 800)
             heightMargin = 55;
-        else if(mode == 'exanded' && $(window).height() > 800)
+        else if(mode == 'exanded' && jQuery(window).height() > 800)
             heightMargin = 180;
         else if(mode == 'small')
             heightMargin = 210;
 
         //type 1 is animate type 0 is normal
-        var windowH = $(window).height()-heightMargin;
-        var windowW = $(window).width()-widthMargin;
+        var windowH = jQuery(window).height()-heightMargin;
+        var windowW = jQuery(window).width()-widthMargin;
         var theImage = new Image();
         theImage.src = $image.attr("src");
         var imgwidth = theImage.width;
@@ -212,7 +213,7 @@ jQuery(function() {
                 }
             }
         }
-        if((type==1) && (!$.browser.msie))
+        if((type==1) && (!jQuery.browser.msie))
             $image.stop(true).animate({
                 'width':theImage.width+'px',
                 'height':theImage.height+'px'
