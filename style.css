@@ -83,17 +83,18 @@ body {min-width:960px;}
 /* Position relative */
 #header, #slideshow, #wb-one, #wb-two, #wb-three, #wb-four {position:relative;} 
 /* Overflow hidden */
-#wrapper, #header, #second-nav ul {overflow:hidden;}
+#wrapper, #header, #second-nav ul, body.portfolio {overflow:hidden;}
 
 /* =============================================================================
  * Background and wrapper styling
  * ===========================================================================*/
+body.portfolio {background-color:#000;}
 .background-left, .background-right {position:fixed; z-index:-1;}
 .background-left {bottom:-50px; left:-30px;}
 .background-right {top:-30px; right:-20px;}
 #wrapper {background:rgba(255,255,255,0.85); margin-top:2px; margin-bottom:2px; -moz-box-shadow:0 0 10px #000; -webkit-box-shadow:0 0 10px #000; box-shadow:0 0 10px #000;}
-#header, #footer {background:rgba(117,201,203,0.85); margin:0; padding:12px 10px;}
-#header {height:72px;}
+#header, #portfolio-header, #footer {background:rgba(117,201,203,0.85); margin:0; padding:12px 10px;}
+#header, #portfolio-header {height:72px;}
 #footer {color:#fff;}
 
 /* =============================================================================
@@ -102,6 +103,7 @@ body {min-width:960px;}
 #site-title {font:normal normal normal 36px/48px 'VivaldiItalic', serif; text-align:center; color:#231d0d; margin:0;}
 #site-title a {color:#231d0d; text-decoration:none;}
 #tag-line {font:italic normal normal 14px/24px Georgia, serif; color:#231d0d; text-align:center; margin:0;}
+#header-wrapper {width:960px; margin:0 auto; padding-top:6px; padding-bottom:6px; overflow:hidden;}
 
 /* =============================================================================
  * Menu styling
@@ -132,6 +134,9 @@ body {min-width:960px;}
 #horizontal-sidebar img {z-index:1; margin-top:3px; margin-left:4px;}
 .widget-link-text {background:rgba(35,20,13,0.8); position:absolute; right:0px; bottom:6px; padding-left:5px; font-size:16px; line-height:1.5; color:#fff; width:200px; z-index:10;}
 
+/* Portfolio styling */
+#loading {display:none; width:100px; height:100px; position:absolute; top:40%; left:50%; margin-left:-24px; background:transparent url(icons/ajax-loader.gif) no-repeat top left;}
+#thumbs-wrapper {position:absolute; width:100%; height:102px; overflow-y:hidden; background-color:rgba(117,201,203,0.85); bottom:0px; left:0px; border-top:2px solid #000;}
 
 /* ============================================================================= 
  * Footer Styling
