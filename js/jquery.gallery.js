@@ -12,16 +12,25 @@ jQuery(function() {
         loadPhoto(jQuery(this),'cursorPlus');
     }).live('mouseover', function() {
         var $this = jQuery(this);
-        $this.stop().animate({'opacity':'1.0'},200);
+        $this.stop().animate({
+            'opacity':'1.0'
+        },200);
     }).live('mouseout', function() {
         var $this = jQuery(this);
-        $this.stop().animate({'opacity':'0.4'},200);
+        $this.stop().animate({
+            'opacity':'0.4'
+        },200);
     });
 
+    /* when resizing the window resize the picture */
     jQuery(window).bind('resize', function() {
         resize(jQuery('#displayed'),0);
     });
 
+    /* When hovering the main image change the mouse icons
+     * when clicking on image, epxand it or make it smaller depending 
+     * on the current mode.
+     */
     jQuery('#displayed').live('mousemove', function(e){
         var $this = jQuery(this);
         var imageWidth = parseFloat($this.css('width'),10);
@@ -33,10 +42,12 @@ jQuery(function() {
             $this.addClass('cursorRight').removeClass('cursorPlus cursorLeft cursorMinus');
         else {
             if(mode == 'expanded' ) {
-                $this.addClass('cursorMinus').removeClass('cursorLeft cursorRight cursorPlus');
+                $this.addClass('cursorMinus')
+                .removeClass('cursorLeft cursorRight cursorPlus');
             }
             else if(mode == 'small') {
-                $this.addClass('cursorPlus').removeClass('cursorLeft cursorRight cursorMinus');
+                $this.addClass('cursorPlus')
+                .removeClass('cursorLeft cursorRight cursorMinus');
             }
         }
     }).live('click', function() {
@@ -48,7 +59,7 @@ jQuery(function() {
             jQuery('#thumbs-wrapper').stop().animate({
                 'bottom':'0px'
             }, 300);
-            jQuery('#header-portfolio').stop().animate({
+            jQuery('#portfolio-header').stop().animate({
                 'top':'0px'
             }, 300);
             jQuery('#image-wrapper').stop().animate({
@@ -60,15 +71,15 @@ jQuery(function() {
             mode='expanded';
             $this.addClass('cursorMinus')
             .removeClass('cursorLeft cursorRight cursorPlus');
-            if(jQuery(window).height() < 800) {
-                jQuery('#header-portfolio').stop().animate({
+            if(jQuery(window).height() <= 800) {
+                jQuery('#portfolio-header').stop().animate({
                     'top':'-70px'
                 },300);
             }
             jQuery('#thumbs-wrapper').stop().animate({
                 'bottom':'-85px'
             },300);
-            if(jQuery(window).height() < 800) {
+            if(jQuery(window).height() <= 800) {
                 jQuery('#image-wrapper').stop().animate({
                     'padding-top':'25px'
                 },300);
@@ -125,7 +136,7 @@ jQuery(function() {
             var $img = jQuery(this);
             finalW += $img.width() + 5;
         });
-        $elem.css('width', finalW+'px').css('visibility','visible');
+        $elem.css('width', finalW + 'px').css('visibility','visible');
     }
 
     function loadPhoto($thumb,cursorClass) {
@@ -176,7 +187,7 @@ jQuery(function() {
             console.log( 'inside height <= 800' );
             heightMargin = 55;
         }
-        else if(mode == 'exanded' && winHeight > 800) {
+        else if(mode == 'expanded' && winHeight > 800) {
             console.log( 'inside height > 800' );
             heightMargin = 180;
         }

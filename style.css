@@ -93,7 +93,8 @@ body.portfolio {background-color:#000;}
 .background-left {bottom:-50px; left:-30px;}
 .background-right {top:-30px; right:-20px;}
 #wrapper {background:rgba(255,255,255,0.85); margin-top:2px; margin-bottom:2px; -moz-box-shadow:0 0 10px #000; -webkit-box-shadow:0 0 10px #000; box-shadow:0 0 10px #000;}
-#header, #portfolio-header, #footer {background:rgba(117,201,203,0.85); margin:0; padding:12px 10px;}
+#header, #footer {background:rgba(117,201,203,0.85); margin:0; padding:12px 10px;}
+#portfolio-header {background:rgba(117,201,203,0.85); position:absolute; top:0; left:0; width:100%; overflow:hidden; margin:0 auto;}
 #header, #portfolio-header {height:72px;}
 #footer {color:#fff;}
 
