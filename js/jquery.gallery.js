@@ -126,3 +126,101 @@ jQuery(function() {
         });
         $elem.css('width', finalW+'px').css('visibility','visible');
     }
+
+    function loadPhoto($thumb,cursorClass) {
+        current = $thumb.index()+1;
+        jQuery('#image-wrapper').empty();
+        jQuery('#loading').show();
+        jQuery('<img id="displayed" class="cursorClass" style="display:none;" title="' + $thumb.attr('title') + '" />').load(function() {
+            var $this = $(this);
+            $('#loading').hide();
+            resize($this,0);
+            if(!jQuery('#image-wrapper').find('img').length) {
+                jQuery('#image-wrapper').append($this.fadeIn(1000));
+                jQuery('#description').html($this.attr('title'));
+            }
+        }).attr('src',$thumb.attr('alt'));
+    }
+
+    function makeScrollable($wrapper, $container, contPadding) {
+        // Get menu width
+        var divWidth = $wrapper.width();
+
+        // Remove scrollbars
+        $wrapper.css({overflow:'hidden'});
+
+        // Find last image container
+        var lastLi = $continaer.find('img:last-child');
+        $wrapper.scrollLeft(0);
+        //When user move mouse over menu
+        $wrapper.unbind('mousemove').bind('mousemove',function(e) {
+
+            // As images are loaded ul width increases,
+            // so we recalculate it each time
+            var ulWidth = lastLi[0].offsetLeft + lastLi.outerWidth() + contPadding;
+
+            var left = (e.pageX - $wrapper.offset().left) * (ulWidth-divWidth) / divWidth;
+            $wrapper.scrollLeft(left);
+        });
+    }
+
+    function resize($image, type) {
+        var widthMargin = 10;
+        var heightMargin = 0;
+        if(mode == 'expanded' && $(window).height() <= 800)
+            heightMargin = 55;
+        else if(mode == 'exanded' && $(window).height() > 800)
+            heightMargin = 180;
+        else if(mode == 'small')
+            heightMargin = 210;
+
+        //type 1 is animate type 0 is normal
+        var windowH = $(window).height()-heightMargin;
+        var windowW = $(window).width()-widthMargin;
+        var theImage = new Image();
+        theImage.src = $image.attr("src");
+        var imgwidth = theImage.width;
+        var imgheight = theImage.height;
+
+        if((imgwidth > windowW) || (imgheight > windowH)) {
+            if (imgwidth > imgheight){
+                var newwidth = windowW;
+                var ratio = imgwidth / windowW;
+                var newheight = imgheight / ratio;
+                theImage.height = newheight;
+                theImage.width = newwidth;
+                if(newheight > windowH) {
+                    var newnewheight = windowH;
+                    var newratio = newheight / windowH;
+                    var newnewwidth = newwidth / newratio;
+                    theImage.width = newnewwidth;
+                    theImage.height = newnewheight;
+                }
+            }
+            else {
+                var newheight = windowH;
+                var ratio = imgheight / windowH;
+                var newwidth = imgwidth / ratio;
+                theImage.height = newheight;
+                theImage.width = newwidth;
+                if(newwidth > windowW) {
+                    var newnewwidth = windowW;
+                    var newratio = newwidth / windowW;
+                    var newnewheight = newheight / newratio;
+                    theImage.height = newnewheight;
+                    theImage.width = newnewwidth;
+                }
+            }
+        }
+        if((type==1) && (!$.browser.msie))
+            $image.stop(true).animate({
+                'width':theImage.width+'px',
+                'height':theImage.height+'px'
+            },1000);
+            else 
+            $image.css({
+                'width':theImage.width+'px',
+                'height':theImage.height+'px'
+            });
+    }
+});
