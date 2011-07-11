@@ -102,6 +102,16 @@ function re_load_slideshow_js() {
 }
 add_action( 'template_redirect', 're_load_slideshow_js' );
 
+function re_load_portfolio_js() {
+    if ( ! is_admin() ) {
+        if ( is_page_template( 'portfolio.php' ) ) {
+            wp_enqueue_script( 'jquery' );
+            wp_enqueue_script( 'jquery-gallery', get_bloginfo( 'template_url' ) . '/js/jquery.gallery.js', array( 'jquery' ) );
+        }
+    }
+}
+add_action( 'template_redirect', 're_load_portfolio_js' );
+
 /**
  * For the sake of security lets remove the WordPress
  * version number from feeds and the generator tag
