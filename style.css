@@ -103,7 +103,7 @@ body.portfolio {background-color:#000;}
 #site-title {font:normal normal normal 36px/48px 'VivaldiItalic', serif; text-align:center; color:#231d0d; margin:0;}
 #site-title a {color:#231d0d; text-decoration:none;}
 #tag-line {font:italic normal normal 14px/24px Georgia, serif; color:#231d0d; text-align:center; margin:0;}
-#header-wrapper {width:960px; margin:0 auto; padding-top:6px; padding-bottom:6px; overflow:hidden;}
+#header-wrapper {width:960px; margin:0 auto; padding-top:6px; padding-bottom:6px; overflow:hidden; position:relative;}
 
 /* =============================================================================
  * Menu styling
@@ -113,6 +113,9 @@ body.portfolio {background-color:#000;}
 #main-nav ul li {display:inline;}
 #main-nav ul li a {margin-right:12px; text-decoration:none; color:#fff; font-weight:bold; line-height:20px; padding:10px 6px; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; background:#231d0d;}
 #main-nav ul li a:hover, #main-nav ul>li.current_page_item>a {background:#497e80;}
+ul.children {background:#487e80; margin:0; position:absolute; bottom:0; right:0; padding-right:32px; overflow:hidden; list-style:none outside none; text-align:center;}
+#main-nav>menu>ul>li>.children>li>a {margin-right:12px; text-decoration:none; color:#fff; line-height:20px; padding:6px 10px;}
+#main-nav>.menu>ul>li>.children>li.current_page_item>a {background:#231d0d;}
 
 /* =============================================================================
  * Content Styling
