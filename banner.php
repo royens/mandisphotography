@@ -31,8 +31,6 @@
             </div><!-- .entry-content -->
         </div><!-- #post-## -->
 
-        <?php comments_template( '', true ); ?>
-
     <?php endwhile; ?>
 
 </div><!-- #content -->
