@@ -42,6 +42,9 @@ endif;
  */
 function mandisphotography_widgets_init() {
 
+    // Register our widget
+    register_widget( 'MandisPhotography_Widget' );
+
     // Area 1, default sidebar
     register_sidebar( array(
         'name' => 'Default Widget Area',

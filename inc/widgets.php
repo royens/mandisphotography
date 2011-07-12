@@ -8,8 +8,6 @@
  * @since 0.0.2
  */
 
-add_action( 'widgets_init', create_function( '', 'return register_widget( "MandisPhotography_Widget" );' ) );
-
 class MandisPhotography_Widget extends WP_Widget {
 
     /**
@@ -19,13 +17,11 @@ class MandisPhotography_Widget extends WP_Widget {
      */
     function MandisPhotography_Widget() {
         /* Widget Settings */
-        $widget_ops = array( 'classname' => 'mandisphotography-widget', 'description' => 'A widget that displays an image with a link in the sidebar.' );
+        $widget_ops = array( 'classname' => 'widget_mandisphotography', 'description' => 'A widget that displays an image with a link in the sidebar.' );
+        $this->WP_Widget( 'widget_mandisphotography', 'Mandi\'s Photography Widget', $widget_ops );
+        $this->alt_option_name = 'widget_mandisphotography';
 
-        $control_ops = array( 'id_base' => 'mandis_widget' );
-
-        $this->WP_Widget( 'mandisphotography-widget', 'Mandi\'s Photography Widget', $widget_ops, $control_ops );
-
-        _log( $_GET['page'] );
+        add_action( 'switch_theme', array(&$this, 'flush_widget_cache' ) );
     }
 
     /**
@@ -36,21 +32,29 @@ class MandisPhotography_Widget extends WP_Widget {
      * @return void Echoes it's output
      */
     function widget( $args, $instance ) {
+        $cache = wp_cache_get( 'widget_mandisphotography', 'widget' );
 
+        if ( !is_array( $cache ) )
+            $cache = array();
+
+        if ( ! isset( $args['widget_id'] ) )
+            $args['widget_id'] = null;
+
+        if ( isset( $cache[$args['widget_id']] ) ) {
+            echo $cache[$args['widget_id']];
+            return;
+        }
+
+        ob_start();
         extract( $args );
 
         /* User selected settings */
-        $title = apply_filters( 'widget_title', $instance['title'] );
         $image_url = $instance['image_url'];
         $link = $instance['link'];
         $link_text = $instance['link_text'];
 
         /* Before widget defined by themes */
         print( $before_widget );
-
-        /* Title, before and after defined by theme */
-        if ( $title )
-            echo $before_title . $title . $after_title;
 
         /* Display image from widget settings */
         if ( $image_url )
@@ -61,6 +65,9 @@ class MandisPhotography_Widget extends WP_Widget {
             printf( '<a href="%1$s" rel="bookmark"><h4 class="widget-link-text">%2$s</h4></a>', $link, $link_text );
 
         echo $after_widget;
+
+        $cache[$args['widget_id']] = ob_get_flush();
+        wp_cache_set( 'widget_mandisphotography', $cache, 'widget' );
     }
 
     /*
@@ -74,12 +81,20 @@ class MandisPhotography_Widget extends WP_Widget {
         $instance = $old_instance;
 
         /* Strip tags if necessary and update the widget settings */
-        $instance['title'] = strip_tags( $new_instance['title'] );
         $instance['image_url'] = strip_tags( $new_instance['image_url'] );
         $instance['link'] = strip_tags( $new_instance['link'] );
         $instance['link_text'] = strip_tags( $new_instance['link_text'] );
+        $this->flush_widget_cache();
+
+        $alloptions = wp_cache_get( 'alloptions', 'option' );
+        if ( isset( $alloptions['widget_mandisphotography'] ) )
+            delete_option( 'widget_mandisphotography' );
 
         return $instance;
+    }
+
+    function flush_widget_cache() {
+        wp_cache_delete( 'widget_mandisphotography', 'widget' );
     }
 
 
@@ -92,17 +107,11 @@ class MandisPhotography_Widget extends WP_Widget {
     function form( $instance ) {
 
         $instance = wp_parse_args( (array) $instance, array(
-            'title' => '',
             'image_url' => '',
             'link' => '',
             'link_text' => ''
         ) );
         ?>
-            <p>
-                <label for="<?php echo $this->get_field_id( 'title' ); ?>">Title:</label>
-                <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" class="widefat" type="text" />
-            </p>
-
             <p>
                 <label for="<?php echo $this->get_field_id( 'image_url' ); ?>">Image URL:</label>
                 <input id="<?php echo $this->get_field_id( 'image_url' ); ?>" name="<?php echo $this->get_field_name( 'image_url' ); ?>" value="<?php echo $instance['image_url']; ?>" class="widefat upload_image" type="text" />
