@@ -94,6 +94,19 @@ function mandisphotography_widgets_init() {
 }
 add_action( 'widgets_init', 'mandisphotography_widgets_init' );
 
+function mandisphotography_get_submenu() {
+    if ( is_front_page() || is_home() )
+        return;
+
+    global $post;
+
+    $parent = $post->post_parent; 
+
+    echo '<ul class="sub-menu">' . "\n";
+    wp_list_pages( array( 'child_of' => $parent, 'title_li' => '' ) );
+    echo '</ul>' . "\n";
+}
+
 function re_load_slideshow_js() {
     if ( ! is_admin() ) {
         if ( is_page_template( 'slideshow.php' ) ) {
