@@ -34,6 +34,7 @@ if ( ! function_exists( 'mandisphotography_setup' ) ) :
         ) );
 
         require( dirname( __FILE__ ) . '/inc/widgets.php' );
+        require( dirname( __FILE__ ) . '/inc/theme-options.php' );
     }
 endif;
 

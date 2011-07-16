@@ -15,7 +15,7 @@
         <p>Theme design by <a href="http://www.royens.com">Roy Ens</a>.
     </div><!-- #footer-left -->
     <div id="footer-right">
-        <p>Follow us on <a href="<?php //echo $facebook_link; ?>" title="Facebook Link"><img src="<?php echo get_template_directory_uri(); ?>/images/f_logo.jpg" width="30" height="30" alt="Facebook Logo" title="Facebook Logo" /></a></p>
+        <p>Follow us on <a href="<?php echo get_fb_link(); ?>" title="Facebook Link"><img src="<?php echo get_template_directory_uri(); ?>/images/f_logo.jpg" width="30" height="30" alt="Facebook Logo" title="Facebook Logo" /></a></p>
     </div><!-- #footer-right -->
 </div><!-- #wrapper -->
 
