@@ -155,6 +155,19 @@ class MandisPhotography_Page_Widget extends WP_Widget {
      * @return void Echoes it's output
      */
     function widget( $args, $instance ) {
+        $cache = wp_cache_get( 'page_widget_mandisphotography', 'widget' );
+
+        if ( !is_array( $cache ) )
+            $cache = array();
+
+        if ( ! isset( $args['widget_id'] ) )
+            $args['widget_id'] = null;
+
+        if ( isset( $cache[$args['widget_id']] ) ) {
+            echo $cache[$args['widget_id']];
+            return;
+        }
+
 
     }
 
