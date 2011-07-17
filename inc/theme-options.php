@@ -1,5 +1,18 @@
 <?php
+/**
+ * Theme options. These functions create a theme options page and allows a 
+ * user to set certain options.
+ *
+ * @package mandisphotography_theme
+ * @version 0.2
+ * @since 0.2
+ */
 
+/**
+ * Initializes the theme options.
+ *
+ * @return void
+ */
 function mandisphotography_theme_options_init() {
 
     if( false === mandisphotography_get_theme_options() ) 
@@ -13,11 +26,21 @@ function mandisphotography_theme_options_init() {
 }
 add_action( 'admin_init', 'mandisphotography_theme_options_init' );
 
+/** Allow finer grained control of capability
+ *
+ * @param string $capability THe capability used for the page, which is manage_options by default.
+ * @return string The capability to actually use.
+ */
 function mandisphotography_option_page_capability( $capability ) {
     return 'edit_theme_options';
 }
 add_filter( 'option_page_capability_mandisphotography_options', 'mandisphotography_option_page_capability' );
 
+/**
+ * Add the theme options page to the admin menu.
+ *
+ * Function attached to the admin_menu action hook.
+ */
 function mandisphotography_theme_options_add_page() {
     $theme_page = add_theme_page(
         'Theme Options',    // Name of Page
@@ -40,6 +63,11 @@ function mandisphotography_theme_options_add_page() {
 }
 add_action( 'admin_menu', 'mandisphotography_theme_options_add_page' );
 
+/**
+ * Returns the default theme options.
+ *
+ * @return array The default theme options.
+ */
 function mandisphotography_get_default_theme_options() {
     $default_theme_options = array(
         'fb_link' => '',
@@ -48,10 +76,21 @@ function mandisphotography_get_default_theme_options() {
     return apply_filters( 'mandisphotography_default_theme_options', $default_theme_options );
 }
 
+
+/**
+ * Return the options array for mandisphotography-theme.
+ *
+ * @return array The array of options
+ */
 function mandisphotography_get_theme_options() {
     return get_option( 'mandisphotography_theme_options', mandisphotography_get_default_theme_options() );
 }
 
+/**
+ * Outputs the HTML of the options page.
+ *
+ * @return void Echoes it's output
+ */
 function theme_options_render_page() {
 ?>
     <div class="wrap">
@@ -86,6 +125,12 @@ function theme_options_render_page() {
     <?php
 }
 
+/**
+ * Validate and sanitizes the input of the user entered options.
+ *
+ * @param array An array of options.
+ * @return array The sanitized array of options.
+ */
 function mandisphotography_theme_options_validate( $input ) {
     $output = $defaults = mandisphotography_get_default_theme_options();
 
@@ -95,6 +140,11 @@ function mandisphotography_theme_options_validate( $input ) {
     return apply_filters( 'mandisphotography_theme_options_validate', $output, $input, $defaults );
 }
 
+/**
+ * Get the fb link for use in themes.
+ *
+ * @return string Link that the user set in the options page.
+ */
 function get_fb_link() {
     $options = mandisphotography_get_theme_options();
 
