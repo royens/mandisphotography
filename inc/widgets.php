@@ -130,4 +130,75 @@ class MandisPhotography_Widget extends WP_Widget {
         <?php
     }
 }
+
+class MandisPhotography_Page_Widget extends WP_Widget {
+
+    /**
+     * Constructor
+     *
+     * @return void
+     */
+    function MandisPhotography_Page_Widget() {
+        /* Widget Settings */
+        $widget_ops = array( 'classname' => 'page_widget_mandisphotography', 'description' => 'Widgets that can be used on banner pages that include logic on which page to display them.' );
+        $this->WP_Widget( 'page_widget_mandisphotography', 'Mandi\'s Photography Page Widget', $widget_ops );
+        $this->alt_option_name = 'page_widget_mandisphotography';
+
+        add_action( 'switch_theme' array( &$this, 'flush_widget_cache' ) );
+    }
+
+    /**
+     * Outputs the HTML for the widget
+     *
+     * @param array An array of standard parameters for widgets in this theme
+     * @param array An array of settings for this widget instance
+     * @return void Echoes it's output
+     */
+    function widget( $args, $instance ) {
+
+    }
+
+    /**
+     * Deals with settings when they are saved by the admin. All validation takes place here.
+     *
+     * @param array An array of values holding the new values
+     * @param array An array holding all the old values
+     * @return array The array of the new saved values.
+     */
+    function update( $new_instance, $old_instance ) {
+        $instance = $old_instance;
+
+        /* Strip tags if necessary and update widget settings */
+        $instance['image_url'] = strip_tags( $new_instance['image_url'] );
+        $instance['link'] = strip_tags( $new_instance['link'] );
+        $instance['link_text'] = strip_tags( $new_instance['link_text'] );
+        $instance['page'] = strip_tags( $new_instance['page'] );
+        $this->flush_widget_cache();
+
+        $alloptions = wp_cache_get( 'alloptions', 'option' );
+        if ( isset( $alloptions['page_widget_mandisphotography'] ) )
+            delete_option( 'page_widget_mandisphotography' );
+
+        return $instance;
+    }
+
+    /**
+     * Flushes all data in the cache pertaining to this widget.
+     *
+     * @return void
+     */
+    function flush_widget_cache() {
+        wp_cache_delete( 'page_widget_mandisphotography', 'widget' );
+    }
+
+    /**
+     * Displays the form for this widget on the Widgets page of the 
+     * WP Admin area.
+     *
+     * @param array An array containing the widget settings
+     * @return void Echoes it's output.
+     */
+    function form( $instance ) {
+
+    }
 ?>
