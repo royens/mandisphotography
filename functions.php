@@ -45,6 +45,8 @@ function mandisphotography_widgets_init() {
 
     // Register our widget
     register_widget( 'MandisPhotography_Widget' );
+    // Register our sidebar page logic widget
+    register_widget( 'MandisPhotography_Page_Widget' );
 
     // Area 1, default sidebar
     register_sidebar( array(
