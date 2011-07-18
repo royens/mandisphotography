@@ -144,7 +144,7 @@ class MandisPhotography_Page_Widget extends WP_Widget {
         $this->WP_Widget( 'page_widget_mandisphotography', 'Mandi\'s Photography Page Widget', $widget_ops );
         $this->alt_option_name = 'page_widget_mandisphotography';
 
-        add_action( 'switch_theme', array( &$this, 'flush_widget_cache' ) );
+        add_action( 'switch_theme', array(&$this, 'flush_widget_cache' ) );
     }
 
     /**
@@ -171,11 +171,12 @@ class MandisPhotography_Page_Widget extends WP_Widget {
         $image_url = $instance['image_url'];
         $link = $instance['link'];
         $link_text = $instance['link_text'];
-        $page_slug = $instnace['page_slug'];
+        $page_slug = $instance['page_slug'];
+        $post_parent = $instance['post_parent'];
 
         global $post;
 
-        if ( $post->post_slug == $page_slug ) {
+        if ( $post->post_name == $page_slug  && $post->post_parent == $post_parent ) {
             ob_start();
             extract( $args );
 
@@ -212,7 +213,8 @@ class MandisPhotography_Page_Widget extends WP_Widget {
         $instance['image_url'] = strip_tags( $new_instance['image_url'] );
         $instance['link'] = strip_tags( $new_instance['link'] );
         $instance['link_text'] = strip_tags( $new_instance['link_text'] );
-        $instance['page_slug'] = strip_tags( $new_instance['page'] );
+        $instance['page_slug'] = strip_tags( $new_instance['page_slug'] );
+        $instance['post_parent'] = (int) $new_instance['post_parent'];
         $this->flush_widget_cache();
 
         $alloptions = wp_cache_get( 'alloptions', 'option' );
@@ -244,7 +246,8 @@ class MandisPhotography_Page_Widget extends WP_Widget {
             'image_url' => '',
             'link' => '',
             'link_text' => '',
-            'page_slug' => ''
+            'page_slug' => '',
+            'post_parent' => ''
         ) );
         ?>
             <p>
@@ -260,6 +263,11 @@ class MandisPhotography_Page_Widget extends WP_Widget {
             <p>
                 <label for="<?php echo $this->get_field_id( 'link_text' ); ?>">Link Text:</label>
                 <input id="<?php echo $this->get_field_id( 'link_text' ); ?>" name="<?php echo $this->get_field_name( 'link_text' ); ?>" value="<?php echo $instance['link_text']; ?>" class="widefat" type="text" />
+            </p>
+
+            <p>
+                <label for="<?php echo $this->get_field_id( 'post_parent' ); ?>">Post Parent of the Page:</label>
+                <input id="<?php echo $this->get_field_id( 'post_parent' ); ?>" name="<?php echo $this->get_field_name( 'post_parent' ); ?>" value="<?php echo $instance['post_parent']; ?>" class="widefat" type="text" />
             </p>
 
             <p>
