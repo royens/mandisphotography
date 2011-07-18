@@ -187,7 +187,7 @@ class MandisPhotography_Page_Widget extends WP_Widget {
 
             /* Display link text and link from widget settings */
             if ( $link_text )
-                printf( '<a href="%1$s" rel="bookmark">h4 class="widget-link-text">%2$s</h4></a>', $link, $link_text );
+                printf( '<a href="%1$s" rel="bookmark"><h4 class="widget-link-text">%2$s</h4></a>', $link, $link_text );
 
             echo $after_widget;
 
