@@ -185,7 +185,7 @@ class MandisPhotography_Page_Widget extends WP_Widget {
         $instance['image_url'] = strip_tags( $new_instance['image_url'] );
         $instance['link'] = strip_tags( $new_instance['link'] );
         $instance['link_text'] = strip_tags( $new_instance['link_text'] );
-        $instance['page'] = strip_tags( $new_instance['page'] );
+        $instance['page_slug'] = strip_tags( $new_instance['page'] );
         $this->flush_widget_cache();
 
         $alloptions = wp_cache_get( 'alloptions', 'option' );
@@ -213,5 +213,32 @@ class MandisPhotography_Page_Widget extends WP_Widget {
      */
     function form( $instance ) {
 
+        $instance = wp_parse_args( (array) $instance, array(
+            'image_url' => '',
+            'link' => '',
+            'link_text' => '',
+            'page_slug' => ''
+        ) );
+        ?>
+            <p>
+                <label for="<?php echo $this->get_field_id( 'image_url' ); ?>">Image URL:</label>
+                <input id="<?php echo $this->get_field_id( 'image_url' ); ?>" name="<?php echo $this->get_field_name( 'image_url' ); ?>" value="<?php echo $instance['image_url']; ?>" class="widefat upload_image" type="text" />
+            </p>
+
+            <p>
+                <label for="<?php echo $this->get_field_id( 'link' ); ?>">Link:</label>
+                <input id="<?php echo $this->get_field_id( 'link' ); ?>" name="<?php echo $this->get_field_name( 'link' ); ?>" value="<?php echo $instance['link']; ?>" class="widefat" type="text" />
+            </p>
+        
+            <p>
+                <label for="<?php echo $this->get_field_id( 'link_text' ); ?>">Link Text:</label>
+                <input id="<?php echo $this->get_field_id( 'link_text' ); ?>" name="<?php echo $this->get_field_name( 'link_text' ); ?>" value="<?php echo $instance['link_text']; ?>" class="widefat" type="text" />
+            </p>
+
+            <p>
+                <label for="<?php echo $this->get_field_id( 'page_slug' ); ?>">Page Slug to Display this Widget on:</label>
+                <input id="<?php echo $this->get_field_id( 'page_slug' ); ?>" name="<?php echo $this->get_field_name( 'page_slug' ); ?>" value="<?php echo $instance['page_slug']; ?>" class="widefat" type="text" />
+            </p>
+        <?php
     }
 ?>
