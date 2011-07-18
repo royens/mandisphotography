@@ -58,6 +58,18 @@ function mandisphotography_widgets_init() {
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
+
+    // Area 2, on banner pages
+    register_sidebar( array(
+        'name' => 'Banner Page Widget Area',
+        'id' => 'banner-widget-area',
+        'description' => 'Widget are on pages using the banner template.',
+        'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</li>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+
     register_sidebar( array( 
         'name' => 'Horizontal Row Left',
         'id' => 'horizontal-bottom-left',
