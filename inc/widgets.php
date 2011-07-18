@@ -144,7 +144,7 @@ class MandisPhotography_Page_Widget extends WP_Widget {
         $this->WP_Widget( 'page_widget_mandisphotography', 'Mandi\'s Photography Page Widget', $widget_ops );
         $this->alt_option_name = 'page_widget_mandisphotography';
 
-        add_action( 'switch_theme' array( &$this, 'flush_widget_cache' ) );
+        add_action( 'switch_theme', array( &$this, 'flush_widget_cache' ) );
     }
 
     /**
@@ -168,7 +168,34 @@ class MandisPhotography_Page_Widget extends WP_Widget {
             return;
         }
 
+        $image_url = $instance['image_url'];
+        $link = $instance['link'];
+        $link_text = $instance['link_text'];
+        $page_slug = $instnace['page_slug'];
 
+        global $post;
+
+        if ( $post->post_slug == $page_slug ) {
+            ob_start();
+            extract( $args );
+
+            print( $before_widget );
+
+            /* Display image from widget settings */
+            if ( $image_url )
+                printf( '<a href="%1$s" rel="bookmark"><img src="%2$s" alt="Widget Image" />', $link, $image_url );
+
+            /* Display link text and link from widget settings */
+            if ( $link_text )
+                printf( '<a href="%1$s" rel="bookmark">h4 class="widget-link-text">%2$s</h4></a>', $link, $link_text );
+
+            echo $after_widget;
+
+            $cache[$args['widget_id']] = ob_get_flush();
+            wp_cache_set( 'widget_mandisphotography', $cache, 'widget' );
+        } else {
+            return;
+        }
     }
 
     /**
@@ -241,4 +268,5 @@ class MandisPhotography_Page_Widget extends WP_Widget {
             </p>
         <?php
     }
+}
 ?>
