@@ -81,7 +81,7 @@ body {min-width:960px;}
 /* No right margin */
 #main-nav, #wb-four, #footer-right, #sidebar, #content.one-column {margin-right:0;}
 /* Position relative */
-#header, #portfolio-header, #slideshow, #wb-one, #wb-two, #wb-three, #wb-four {position:relative;} 
+#header,/* #portfolio-header,*/ #slideshow, #wb-one, #wb-two, #wb-three, #wb-four {position:relative;} 
 /* Overflow hidden */
 #wrapper, #header, #second-nav ul, body.portfolio {overflow:hidden;}
 
@@ -94,7 +94,7 @@ body.portfolio {background-color:#000;}
 .background-right {top:-30px; right:-20px;}
 #wrapper {background:rgba(255,255,255,0.85); margin-top:2px; margin-bottom:2px; -moz-box-shadow:0 0 10px #000; -webkit-box-shadow:0 0 10px #000; box-shadow:0 0 10px #000;}
 #header, #footer {background:rgba(117,201,203,0.85); margin:0; padding:12px 10px;}
-#portfolio-header {background:rgba(117,201,203,0.85); position:relative; top:0; left:0; width:100%; overflow:hidden; margin:0 auto;}
+#portfolio-header {background:rgba(117,201,203,0.85); position:fixed; top:0; left:0; width:100%; overflow:hidden; margin:0 auto; z-index:20;}
 #header {height:72px;}
 #portfolio-header {height:72px; padding:12px 10px;}
 #footer {color:#fff;}
@@ -145,7 +145,7 @@ ul.menu>li>a:hover, ul.menu>li.current_page_item>a, ul.menu>li.current-menu-ance
 #thumbs-wrapper {position:absolute; width:100%; height:102px; overflow-y:hidden; background-color:rgba(117,201,203,0.85); bottom:0px; left:0px; border-top:2px solid #000;}
 #thumbs-container {height:79px; display:block; margin:0; background-color:#000;}
 #thumbs-wrapper img {float:left; margin:2px; display:block; cursor:pointer; opacity:0.4; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=40);}
-#image-wrapper {position:relative; padding-top:96px; text-align:center;}
+#image-wrapper {position:relative; padding-top:104px; text-align:center;}
 #image-wrapper img {margin:0 auto; box-shadow:2px 2px 15px #fff; -moz-box-shadow:2px 2px 15px #fff; -webkit-box-shadow:2px 2px 15px #fff;}
 .infobar {height:22px; line-height:22px; text-align:center; position:fixed; background-color:rgba(117,201,203,0.85); left:0px; width:100%; bottom:0px;}
 .infobar img {vertical-align:middle;}
