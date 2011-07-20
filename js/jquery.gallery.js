@@ -63,7 +63,7 @@ jQuery(function() {
                 'top':'0px'
             }, 300);
             jQuery('#image-wrapper').stop().animate({
-                'padding-top':'96px'
+                'padding-top':'104px'
             },300);
             resize($this,1);
         }
@@ -81,7 +81,7 @@ jQuery(function() {
             },300);
             if(jQuery(window).height() <= 800) {
                 jQuery('#image-wrapper').stop().animate({
-                    'padding-top':'25px'
+                    'padding-top':'33px'
                 },300);
             }
             resize($this,1);
@@ -185,7 +185,7 @@ jQuery(function() {
 
         if(mode == 'expanded' && winHeight <= 800) {
             console.log( 'inside height <= 800' );
-            heightMargin = 55;
+            heightMargin = 62;
         }
         else if(mode == 'expanded' && winHeight > 800) {
             console.log( 'inside height > 800' );
