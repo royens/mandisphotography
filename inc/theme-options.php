@@ -3,9 +3,9 @@
  * Theme options. These functions create a theme options page and allows a 
  * user to set certain options.
  *
- * @package mandisphotography_theme
- * @version 0.2
- * @since 0.2
+ * @package mandisphotography
+ * @version 0.0.2
+ * @since 0.0.2
  */
 
 /**

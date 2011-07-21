@@ -1,3 +1,12 @@
+/**
+ * Javascript that uses jQuery to create a gallery with thumbnails
+ * along the bottom and a displayed image that can be enlarged by 
+ * clicking.
+ *
+ * @package mandisphotography
+ * @version 0.0.2
+ * @since 0.0.2
+ */
 jQuery(function() {
     /* mode is small or expanded, depending on the picture size */
     var mode = 'small';

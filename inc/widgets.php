@@ -3,7 +3,7 @@
  * Makes a custom widget for displaying images with links
  * in any sidebar.
  *
- * @package MandisPhotography Theme
+ * @package mandisphotography
  * @version 0.0.2
  * @since 0.0.2
  */
