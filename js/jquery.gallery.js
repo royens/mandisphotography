@@ -46,7 +46,7 @@ jQuery(function() {
                 .removeClass('cursorLeft cursorRight cursorPlus');
             }
             else if(mode == 'small') {
-                $this.addClss('cursorPlus')
+                $this.addClass('cursorPlus')
                 .removeClass('cursorLeft cursorRight cursorMinus');
             }
         }
