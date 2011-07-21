@@ -6,7 +6,7 @@
  * rotating slideshow using JQuery Cycle plugin.
  * 
  * @package mandisphotography
- * @version 0.0.2
+ * @version 1.0
  * @since 0.0.1
  */
 ?>
