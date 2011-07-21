@@ -193,7 +193,7 @@ jQuery(function() {
         }
         else if(mode == 'small') {
             console.log( 'inside mode is small' );
-            heightMargin = 210;
+            heightMargin = 220;
             }
 
         //type 1 is animate type 0 is normal
