@@ -3,7 +3,6 @@
  * Displays the HTML for the horizontal sidebar.
  *
  * @package mandisphotography
- * @subpackage theme
  * @version 0.0.2
  * @since 0.0.1
  */

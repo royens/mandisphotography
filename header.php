@@ -5,9 +5,8 @@
  * Displays everything from the start of the page to 
  * <div id="main">
  *
- * @version 0.0.2
  * @package mandisphotography
- * @subpackage theme
+ * @version 0.0.2
  * @since 0.0.1
  */
 ?>
