@@ -37,6 +37,12 @@
         <link rel="profile" href="http:/gmpgs.org/xfn/11" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+        <style type="text/css">
+            .cursorRight {cursor:url("icons/next.cur"),url("<?php bloginfo( 'template_url' ); ?>/icons/next.cur"), default;}
+            .cursorLeft {cursor:url("icons/prev.cur"), url("<?php bloginfo( 'template_url' ); ?>/icons/prev.cur"), default;}
+            .cursorPlus {cursor:url("icons/plus.cur"), url("<?php bloginfo( 'template_url' ); ?>/icons/plus.cur"), default;}
+            .cursorMinus {cursor:url("icons/minus.cur"), url("<?php bloginfo( 'template_url' ); ?>/icons/minus.cur"), default;}
+        </style>
 
         <?php 
             if ( is_singular() && get_option( 'thread_comments' ) )

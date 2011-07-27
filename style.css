@@ -2,7 +2,7 @@
 Theme Name: Mandi's Photography Theme
 Theme URI: http://www.mandisphotography.com
 Description: A custom theme for http://www.mandisphotography.com that makes heavy use of jQuery.
-Version: 0.0.2
+Version: 1.0
 Author: Roy Ens
 Author URI: http://www.royens.com
 */
@@ -155,10 +155,10 @@ ul.menu>li>a:hover, ul.menu>li.current_page_item>a, ul.menu>li.current-menu-ance
 #image-wrapper img {margin:0 auto; box-shadow:2px 2px 15px #fff; -moz-box-shadow:2px 2px 15px #fff; -webkit-box-shadow:2px 2px 15px #fff;}
 .infobar {height:22px; line-height:22px; text-align:center; position:fixed; background-color:rgba(117,201,203,0.85); left:0px; width:100%; bottom:0px;}
 .infobar img {vertical-align:middle;}
-.cursorRight {cursor:url("icons/next.cur"),url("icons/next.cur"), default;}
+/*.cursorRight {cursor:url("icons/next.cur"),url("icons/next.cur"), default;}
 .cursorLeft {cursor:url("icons/prev.cur"), url("icons/prev.cur"), default;}
 .cursorPlus {cursor:url("icons/plus.cur"), url("icons/plus.cur"), default;}
-.cursorMinus {cursor:url("icons/minus.cur"), url("icons/minus.cur"), default;}
+.cursorMinus {cursor:url("icons/minus.cur"), url("icons/minus.cur"), default;}*/
 
 /* ============================================================================= 
  * Footer Styling
