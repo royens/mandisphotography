@@ -97,7 +97,6 @@ body.portfolio {background-color:#000;}
 #portfolio-header {background:rgba(117,201,203,0.85); position:fixed; top:0; left:0; width:100%; overflow:hidden; margin:0 auto; z-index:20;}
 #header {height:72px;}
 #portfolio-header {height:72px; padding:12px 10px;}
-#footer {color:#fff;}
 
 /* =============================================================================
  * Header area styling
@@ -163,8 +162,9 @@ ul.menu>li>a:hover, ul.menu>li.current_page_item>a, ul.menu>li.current-menu-ance
 /* ============================================================================= 
  * Footer Styling
  * ===========================================================================*/
+#footer {color:#231d0d;}
 #footer p {margin-bottom:0;}
-#footer a {color:#fff; text-decoration:none;}
+#footer a {color:#231d0d; text-decoration:none;}
 #footer-right img {vertical-align:middle;}
 #footer-right p {text-align:right;}
 
