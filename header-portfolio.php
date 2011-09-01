@@ -45,7 +45,7 @@
         ?>
     </head>
 
-    <body <?php body_class( 'portfolio' ); ?>>
+    <body <?php body_class( 'portfolio' ); ?> oncontextmenu="return false;">
 
         <img class="background-left" src="<?php echo get_template_directory_uri(); ?>/images/swirl-left.png" alt="Background Image" />
         <img class="background-right" src="<?php echo get_template_directory_uri(); ?>/images/swirl-right.png" alt="Background Image" />
