@@ -69,9 +69,9 @@ h6 {font-size:16px;}
 /* Grid */
 body {min-width:960px;}
 #wrapper {margin-left:auto; margin-right:auto; width:960px;}
-#header, #branding, #main-nav, #main, #content, #sidebar, #sidebar-banner, #wb-one, #wb-two, #wb-three, #wb-four, #footer, #footer-left, #footer-right, #content.one-column {display:inline; float:left; margin-left:10px; margin-right:10px;}
+#header, #branding, #main-nav, #main, #content, #sidebar, #sidebar-banner, #wb-one, #wb-two, #wb-three, #wb-four, #footer, #footer-left, #footer-right, #content.one-column #content.full-width {display:inline; float:left; margin-left:10px; margin-right:10px;}
 /* Widths */
-#header, #main, #footer, #content.one-column {width:940px;}
+#header, #main, #footer, #content.one-column, #content.full-width {width:940px;}
 #branding, #sidebar, #sidebar-banner {width:300px;}
 #main-nav, #content {width:620px;}
 #footer-left, #footer-right {width:460px;}
@@ -97,6 +97,13 @@ body.portfolio {background-color:#000;}
 #portfolio-header {background:rgba(117,201,203,0.85); position:fixed; top:0; left:0; width:100%; overflow:hidden; margin:0 auto; z-index:20;}
 #header {height:72px;}
 #portfolio-header {height:72px; padding:12px 10px;}
+
+/* =============================================================================
+ * Alignment styling
+ * ===========================================================================*/
+.alignleft {display:inline; float:left; margin-right:1.625em;}
+.alignright {display:inline; float:right; margin-left:1.625em;}
+.aligncenter {clear:both; display:block; margin-left:auto; margin-right:auto;}
 
 /* =============================================================================
  * Header area styling
