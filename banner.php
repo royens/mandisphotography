@@ -6,7 +6,7 @@
  * at the top.
  *
  * @package mandisphotography
- * @version 1.0
+ * @version 1.0.1
  * @since 0.0.1
  */
 ?>
