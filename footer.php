@@ -3,7 +3,7 @@
  * Displays the code for the footer.
  *
  * @package mandisphotography
- * @version 1.0.1
+ * @version 1.0.2
  * @since 0.0.1
  */
 ?>

@@ -1,9 +1,17 @@
 <?php
 /**
  * @package mandisphotography
- * @version 1.0.1
+ * @version 1.0.2
  * @since 0.0.1
  */
+
+/** Initialize the update checker.
+ */
+require 'inc/theme-update-checker.php';
+$mandisphotography_update_checker = new ThemeUpdateChecker(
+    'mandisphotography',
+    'http://www.royens.com/themes/mandisphotography-updates/info.json'
+);
 
 /**
  * Tell WordPress to run mandisphotography_setup() when the
