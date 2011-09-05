@@ -7,11 +7,24 @@
 
 /** Initialize the update checker.
  */
-require 'inc/theme-update-checker.php';
+/*require 'inc/theme-update-checker.php';
 $mandisphotography_update_checker = new ThemeUpdateChecker(
     'mandisphotography',
     'http://www.royens.com/themes/mandisphotography-updates/info.json'
 );
+ */
+
+add_action( 'after_setup_theme', 'mandisphotography_theme_update' );
+
+function mandisphotography_theme_update() {
+    require 'inc/theme-update-checker.php';
+    $mandisphotography_update_checker = new ThemeUpdateChecker(
+        'mandisphotography',
+        'http://www.royens.com/themes/mandisphotography-updates/info.json'
+    );
+
+    $mandisphotography_update_checker->requestUpdate(); 
+}
 
 /**
  * Tell WordPress to run mandisphotography_setup() when the
