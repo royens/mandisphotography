@@ -108,18 +108,23 @@ function mandisphotography_widgets_init() {
 }
 add_action( 'widgets_init', 'mandisphotography_widgets_init' );
 
-function mandisphotography_get_submenu() {
-    if ( is_front_page() || is_home() )
-        return;
+if ( !function_exists( 'mandisphotography_get_submenu' ) ) :
+    /**
+     * Function creates the submenu on pages that have children
+     */
+    function mandisphotography_get_submenu() {
+        global $post;
+        if ( $post->post_parent ) {
+            $children = wp_list_pages( 'title_li=&child_of=' . $post->post_parent . '&echo=0' );
+        } else {
+            $children = wp_list_pages( 'title_li=&child_of=' . $post->ID . '&echo=0' );
+        }
 
-    global $post;
-
-    $parent = $post->post_parent; 
-
-    echo '<ul class="sub-menu">' . "\n";
-    wp_list_pages( array( 'child_of' => $parent, 'title_li' => '' ) );
-    echo '</ul>' . "\n";
-}
+        if ( $children ) {
+            echo '<ul class="sub-menu">' . "\n" . $children . "\n" . '</ul>';
+        }
+    }
+endif;
 
 function re_load_slideshow_js() {
     if ( ! is_admin() ) {
