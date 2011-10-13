@@ -166,6 +166,9 @@ ul.menu>li>a:hover, ul.menu>li.current_page_item>a, ul.menu>li.current-menu-ance
 .cursorPlus {cursor:url("icons/plus.cur"), url("icons/plus.cur"), default;}
 .cursorMinus {cursor:url("icons/minus.cur"), url("icons/minus.cur"), default;}
 
+/* Remove margins from gallery items with tag <dl> */
+dl.gallery-item {margin:0;}
+
 /* ============================================================================= 
  * Footer Styling
  * ===========================================================================*/

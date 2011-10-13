@@ -180,10 +180,10 @@ add_filter( 'the_generator', 'mandisphotography_remove_version' );
 /**
  * Remove inline styles printed when the gallery shortcode is used.
  */
-function mandisphotography_remove_gallery_css( $css ) {
+/*function mandisphotography_remove_gallery_css( $css ) {
     return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
 }
-add_filter( 'gallery_style', 'mandisphotography_remove_gallery_css' );
+add_filter( 'gallery_style', 'mandisphotography_remove_gallery_css' ); */
 
 if ( ! function_exists( 'mandisphotography_posted_on' ) ) :
     /** Prints HTML with meta infomration for the current post.
