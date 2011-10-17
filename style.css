@@ -69,17 +69,17 @@ h6 {font-size:16px;}
 /* Grid */
 body {min-width:960px;}
 #wrapper {margin-left:auto; margin-right:auto; width:960px;}
-#header, #branding, #main-nav, #main, #content, #sidebar, #sidebar-banner, #wb-one, #wb-two, #wb-three, #wb-four, #footer, #footer-left, #footer-right, #content.one-column #content.full-width {display:inline; float:left; margin-left:10px; margin-right:10px;}
+#header, #branding, #main-nav, #main, #content, #sidebar, #sidebar-banner, #wb-one, #wb-two, #wb-three, #wb-four, #footer, #footer-left, #footer-right, #content.one-column #content.full-width, .attachment .nav-previous, .attachment .nav-next {display:inline; float:left; margin-left:10px; margin-right:10px;}
 /* Widths */
 #header, #main, #footer, #content.one-column, #content.full-width {width:940px;}
 #branding, #sidebar, #sidebar-banner {width:300px;}
 #main-nav, #content {width:620px;}
-#footer-left, #footer-right {width:460px;}
+#footer-left, #footer-right, .attachment .nav-previous, .attachment .nav-next {width:460px;}
 #wb-one, #wb-two, #wb-three, #wb-four {width:218px;} /* Not 220px to accomodate a 1px border */
 /* No left margin */
-#branding, #wb-one, #footer-left, #content, #content.one-column {margin-left:0;}
+#branding, #wb-one, #footer-left, #content, #content.one-column, .attachment .nav-previous{margin-left:0;}
 /* No right margin */
-#main-nav, #wb-four, #footer-right, #sidebar, #sidebar-banner, #content.one-column {margin-right:0;}
+#main-nav, #wb-four, #footer-right, #sidebar, #sidebar-banner, #content.one-column, .attachment .nav-next {margin-right:0;}
 /* Position relative */
 #header, #slideshow, #wb-one, #wb-two, #wb-three, #wb-four {position:relative;} 
 /* Overflow hidden */
@@ -166,9 +166,13 @@ ul.menu>li>a:hover, ul.menu>li.current_page_item>a, ul.menu>li.current-menu-ance
 .cursorPlus {cursor:url("icons/plus.cur"), url("icons/plus.cur"), default;}
 .cursorMinus {cursor:url("icons/minus.cur"), url("icons/minus.cur"), default;}
 
+/* Gallery styling */
 /* Remove margins from gallery items with tag <dl> */
 dl.gallery-item {margin:0;}
-
+.attachment .entry-title {text-align:center;}
+.entry-attachment img {display:block; clear:both; text-align:center; margin:0 auto;}
+.entry-caption {clear:both; font-size:1.5em;}
+.attachment .nav-next {text-align:right;}
 /* ============================================================================= 
  * Footer Styling
  * ===========================================================================*/

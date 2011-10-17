@@ -10,7 +10,7 @@
 
 <?php get_header(); ?>
 
-<div id="content" role="main">
+<div id="content" class="full-width" role="main">
     
     <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
@@ -49,22 +49,17 @@
                     ?>
                     <p class="attachment"><a href="<?php echo $next_attachment_url; ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment"><?php $attachment_size = apply_filters( 'mandisphotography_attachment_size', 900 ); echo wp_get_attachment_image( $post->ID, array( $attachment_size, 9999 ) ); ?></a></p>
 
-                    <div id="nav-below" class="navigation">
-                        <div class="nav-previous"><?php previous_image_link( false ); ?></div>
-                        <div class="nav-next"><?php next_image_link( false ); ?></div>
-                    </div><!-- #nav-below -->
-
                 </div><!-- .entry-attachment -->
 
                 <div class="entry-caption"><?php if ( !empty( $post->post_excerpt ) ) the_excerpt(); ?></div>
 
                 <?php the_content( 'Continue Reading <span class="meta-nav">&rarr;</span>' ); ?>
                 <?php wp_link_pages( array( 'before' => '<div class="page-links">Pages:', 'after' => '</div>' ) ); ?>
+                <div id="nav-below" class="navigation">
+                    <div class="nav-previous"><?php previous_image_link( false ); ?></div>
+                    <div class="nav-next"><?php next_image_link( false ); ?></div>
+                </div><!-- #nav-below -->
             </div><!-- .entry-content -->
-
-            <div class="entry-utility">
-                <?php mandisphotography_posted_in(); ?>
-            </div><!-- .entry-utility -->
         </div><!-- #post-## -->
 
     <?php endwhile; ?>
