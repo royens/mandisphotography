@@ -56,8 +56,8 @@
                 <?php the_content( 'Continue Reading <span class="meta-nav">&rarr;</span>' ); ?>
                 <?php wp_link_pages( array( 'before' => '<div class="page-links">Pages:', 'after' => '</div>' ) ); ?>
                 <div id="nav-below" class="navigation">
-                    <div class="nav-previous"><?php previous_image_link( false ); ?></div>
-                    <div class="nav-next"><?php next_image_link( false ); ?></div>
+                    <div class="nav-previous"><?php previous_image_link( false, '&larr; Previous Image' ); ?></div>
+                    <div class="nav-next"><?php next_image_link( false, 'Next Image &rarr;' ); ?></div>
                 </div><!-- #nav-below -->
             </div><!-- .entry-content -->
         </div><!-- #post-## -->
