@@ -47,7 +47,7 @@
                             $next_attachment_url = wp_get_attachment_url();
                         }
                     ?>
-                    <p class="attachment"><a href="<?php echo $next_attachment_url; ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment"><?php $attachment_size = apply_filters( 'mandisphotography_attachment_size', 900 ); echo wp_get_attachment_image( $post->ID, array( $attachment_size, 9999 ) ); ?></a></p>
+                    <p class="attachment"><a href="<?php echo $next_attachment_url; ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment"><?php echo wp_get_attachment_image( $post->ID, 'full' ); ?></a></p>
 
                 </div><!-- .entry-attachment -->
 
