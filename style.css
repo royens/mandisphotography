@@ -62,6 +62,8 @@ h3 {font-size:28px;}
 h4 {font-size:24px;}
 h5 {font-size:20px;}
 h6 {font-size:16px;}
+a {color:#231d0d;}
+a:visited, a:hover, a:active {color:#497e80;}
 
 /* =============================================================================
  * Layout
